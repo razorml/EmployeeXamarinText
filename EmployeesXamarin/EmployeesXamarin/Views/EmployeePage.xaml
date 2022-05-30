@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmployeesXamarin.Views.EmployeePage">
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Nombre"></Label>
+            <Entry Text="{Binding Name}"></Entry>
+            <Label Text="Username"></Label>            
+            <Entry Text="{Binding Username}"></Entry>
+            <Label Text="Password"></Label>
+            <Entry Text="{Binding Password}"></Entry>
+            <Label Text="Email"></Label>
+            <Entry Text="{Binding Email}"></Entry>
+            <Label Text="Fax"></Label>
+            <Entry Text="{Binding Fax}"></Entry>                                       
+            <Label Text="Telefono"></Label>
+            <Entry Text="{Binding Telephone}"></Entry>            
+            <Button Text="Guardar" Command="{Binding InsertEmployeeCommand}"></Button>
+            <Button Text="Modificar" Command="{Binding UpdateEmployeeCommand}"></Button>
+            <Button Text="Eliminar" Command="{Binding DeleteEmployee}"></Button>
+            <Button Text="Limpiar" Command="{Binding CleanCommand}"></Button>
+            <ActivityIndicator IsRunning="{Binding IsBusy}"></ActivityIndicator>
+            <ListView x:Name="lvEmployee" ItemsSource="{Binding Employees}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Username}" Detail="{Binding Name}">                       
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
